@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+}
+
+.pokeball-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.top-bar h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
