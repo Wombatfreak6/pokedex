@@ -25,3 +25,78 @@ body {
   font-size: 1.8rem;
   font-weight: 600;
 }
+body {
+  background: #f6f8fc;
+  color: #1f2937;
+  padding: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pokedex-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Grid */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+/* Cards */
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.pokemon-details {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+
+  position: sticky;
+  top: 24px;
+
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+
+/* Hidden state */
+.hidden {
+  display: none;
+}
+
+/* When active, switch to grid + sidebar */
+.pokedex-container.show-details {
+  grid-template-columns: 3fr 1.3fr;
+}
