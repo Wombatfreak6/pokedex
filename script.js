@@ -1,6 +1,7 @@
 const grid = document.querySelector(".pokemon-grid");
 const details = document.querySelector(".pokemon-details");
 const container = document.querySelector(".pokedex-container");
+const searchInput = document.getElementById("search-input"); // Get the search bar
 
 let allPokemon = [];
 
@@ -46,11 +47,25 @@ function showDetails(pokemon) {
   details.classList.remove("hidden");
   container.classList.add("show-details");
   details.scrollIntoView({ behavior: "smooth", block: "start" });
-
 }
 
+// Search Functionality
+searchInput.addEventListener("input", (e) => {
+  const searchValue = e.target.value.toLowerCase();
+
+  // Filter the existing list
+  const filteredPokemon = allPokemon.filter((pokemon) => 
+    pokemon.name.toLowerCase().includes(searchValue)
+  );
+
+  // Clear the grid and re-render only the matches
+  grid.innerHTML = "";
+  filteredPokemon.forEach(createCard);
+});
+
 async function loadPokemon() {
-  for (let i = 1; i <= 200; i++) {
+  // Loop changed to 151 (Season 1 / Generation 1 only)
+  for (let i = 1; i <= 151; i++) {
     const pokemon = await fetchPokemon(i);
     allPokemon.push(pokemon);
     createCard(pokemon);
